@@ -38,6 +38,6 @@ def calcular():
     return render_template("index.html", resultado=resultado)
 
 
-if __name__ == "__main__": # pragma: no cover
+if __name__ == "__main__":  # pragma: no cover
     """prueba"""
     app.run(debug=False, port=5000, host="0.0.0.0")
