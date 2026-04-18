@@ -1,10 +1,13 @@
 """Módulo principal de la aplicación Flask para la calculadora."""
 
 # app/app.py
+import os
 from flask import Flask, render_template, request
 from .calculadora import sumar, restar, multiplicar, dividir
 
 app = Flask(__name__)
+
+app.secret_key = os.environ.get("FLASK_SECRET_KEY", "dev-only-insecure-key")
 
 
 @app.route("/", methods=["GET"])
@@ -38,6 +41,12 @@ def calcular():
         resultado = "Error: No se puede dividir por cero"
 
     return render_template("index.html", resultado=resultado)
+
+
+@app.route("/health")
+def health():
+    """nueva ruta gracias Isis"""
+    return "OK", 200
 
 
 if __name__ == "__main__":  # pragma: no cover
