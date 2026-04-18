@@ -1,6 +1,11 @@
 # app/calculadora.py
+"""aplicacion calculadora"""
 
-AUTORES = "???"  # IMPORTANTE: Reemplaza con los usuarios de correo de EAFIT de los estudiantes que participaron en la entrega, separados por comas.
+AUTORES = "???"  # IMPORTANTE: 
+#Reemplaza con los usuarios de 
+#correo de EAFIT de los estudiantes 
+#que participaron en la entrega, 
+#separados por comas.
 
 
 def sumar(a, b):
