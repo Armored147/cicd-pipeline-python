@@ -4,12 +4,14 @@ from .calculadora import sumar, restar, multiplicar, dividir
 
 app = Flask(__name__)
 
-
-@app.route("/", methods=["GET", "POST"])
+@app.route("/", methods=["GET"])
 def index():
-    resultado = None
-    if request.method == "POST":
-        try:
+    return render_template("index.html", resultado=None)
+
+
+
+@app.route("/calcular", methods=["POST"])
+    try:
             num1 = float(request.form["num1"])
             num2 = float(request.form["num2"])
             operacion = request.form["operacion"]
@@ -24,13 +26,13 @@ def index():
                 resultado = dividir(num1, num2)
             else:
                 resultado = "Operación no válida"
-        except ValueError:
+    except ValueError:
             resultado = "Error: Introduce números válidos"
-        except ZeroDivisionError:
+    except ZeroDivisionError:
             resultado = "Error: No se puede dividir por cero"
 
     return render_template("index.html", resultado=resultado)
 
 
 if __name__ == "__main__":  # pragma: no cover
-    app.run(debug=True, port=5000, host="0.0.0.0")  # Quita debug=True para producción
+    app.run(debug=False, port=5000, host="0.0.0.0")  # Quita debug=True para producción
