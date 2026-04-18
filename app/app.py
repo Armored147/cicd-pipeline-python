@@ -1,3 +1,5 @@
+"""Módulo principal de la aplicación Flask para la calculadora."""
+
 # app/app.py
 from flask import Flask, render_template, request
 from .calculadora import sumar, restar, multiplicar, dividir
@@ -39,5 +41,4 @@ def calcular():
 
 
 if __name__ == "__main__":  # pragma: no cover
-    """prueba"""
     app.run(debug=False, port=5000, host="0.0.0.0")
