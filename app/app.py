@@ -7,11 +7,13 @@ app = Flask(__name__)
 
 @app.route("/", methods=["GET"])
 def index():
+    """renderiza la pagina"""
     return render_template("index.html", resultado=None)
 
 
 @app.route("/calcular", methods=["POST"])
 def calcular():
+    """calcular las funciones"""
     try:
         num1 = float(request.form["num1"])
         num2 = float(request.form["num2"])
